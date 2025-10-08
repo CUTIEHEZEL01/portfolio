@@ -1,5 +1,3 @@
-// ✅ Display current year
-document.getElementById('year').textContent = new Date().getFullYear();
 
 // 🔹 Login system setup
 const loginModal = document.getElementById("loginModal");
