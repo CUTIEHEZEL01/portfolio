@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hezel Canales - Creative Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN MODAL -->
+  <div class="login-modal" id="loginModal">
+    <div class="login-box">
+      <h2>Login</h2>
+      <input type="text" id="fullName" placeholder="Full Name" required><br>
+      <input type="email" id="email" placeholder="Gmail Address" required><br>
+      <button id="getOtpBtn">Get OTP</button><br>
+      <input type="text" id="otpInput" placeholder="Enter OTP" style="display:none;"><br>
+      <button id="confirmOtpBtn" style="display:none;">Confirm OTP</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="portfolioContent" style="display:none;">
+    <header>
+      <div class="container" style="display:flex;align-items:center;gap:1rem;">
+        <div class="brand">
+          <div class="logo">HOME</div>
+          <div>
+            <div style="font-weight:800">Hezel S. Canales</div>
+            <div style="font-size:.85rem;color:var(--muted)">Daanbantayan CTU 4th Year Student</div>
+          </div>
+        </div>
+        <nav style="margin-left:auto">
+          <a href="#" id="openProject">project</a>
+          <a href="#about" id="openAbout">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+      </div>
+    </header>
+
+
+    <main class="container">
+      <section class="creative-hero">
+        <div class="hero-inner">
+          <img src="viber_image_2025-10-07_12-48-07-272.jpg" alt="Profile Picture" class="hero-avatar">
+          <h1>PORTFOLIO</h1>
+          <p>Hiiiiiii kinsa ka!<br>Behind Trust</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© <span id="year"></span> Hezel Canales — Cebu, Philippines</div>
+    </footer>
+  </div>
+
+  <!-- ABOUT FULLSCREEN -->
+  <div id="aboutCover" class="about-cover">
+    <div class="about-inner">
+      <button class="close" id="closeAbout">Close</button>
+      <h2>ABOUT ME</h2>
+      <p>Hey whatss up! I am Hezel Canales your extrovert girl with talkative mouth.</p>
+      <br><h3><u>Personal Information</u></h3>
+      <div class="info-list">
+        <p><strong>Age:</strong> 21 yrs. old</p>
+        <p><strong>Sex:</strong> Female</p>
+        <p><strong>Height:</strong> 4'11"</p>
+        <p><strong>Weight:</strong> 40 kg</p>
+        <p><strong>Birthday:</strong> January 22, 2004</p>
+        <p><strong>Birthplace:</strong> Diit, Agutaya, Palawan</p>
+        <p><strong>Civil Status:</strong> Single</p>
+        <p><strong>Nationality:</strong> Filipino</p>
+        <p><strong>Religion:</strong> Catholic</p>
+      </div>
+      <br><h3><u>Hobbies</u></h3>
+      <p>• Singing<br>• Dancing<br>• Playing Online Games</p>
+      <br><h3><u>Educational Background</u></h3>
+      <p><strong>Tertiary:</strong><br>Bachelor of Industrial Technology - Major in Computer Technology<br>
+      Cebu Technological University – Daanbantayan Campus<br>
+      Agujo Daanbantayan (2025 - 2026)</p>
+      <p><strong>Secondary:</strong><br>
+      Senior High School (STEM) – Saint Joseph Academy (2021 - 2022)<br>
+      Junior High School – Concepcion National High School (2019 - 2020)</p>
+      <p><strong>Primary:</strong><br>
+      Concepcion Elementary School, Agutaya Palawan (2015 - 2016)</p>
+    </div>
+  </div>
+
+
+ <!-- PROJECT FULLSCREEN (HIDDEN BY DEFAULT) -->
+  <div id="projectCover" class="about-cover" style="display:none;">
+    <div class="about-inner">
+      <button class="close" id="closeProject">Close</button>
+      <h2>MY PROJECTS</h2>
+      <p>You can easily add or manage your projects here anytime.</p>
+
+      <form id="projectForm">
+        <input type="text" id="projectTitle" placeholder="Project Title" required>
+        <input type="text" id="projectImage" placeholder="Image URL (optional)">
+        <input type="text" id="projectLink" placeholder="Project Link (optional)">
+        <button type="submit">Add Project</button>
+      </form>
+
+      <div class="grid" id="projectList"></div>
+    </div>
+  </div>
+
+  <!-- CONTACT FULLSCREEN -->
+  <div id="contactCover" class="about-cover">
+    <div class="about-inner">
+      <button class="close" id="closeContact">Close</button>
+      <h3>CONTACT</h3>
+      <div class="info-list">
+        <br><h2><u>HEZEL S. CANALES</u></h2>
+        <p>Purok Bilason, Pang-Pang, Tapilon, Daanbantayan, Cebu</p>
+        <p><strong>Contact:</strong> 09949510845 / 09203570051</p>
+        <p><strong>Email:</strong> <a href="mailto:hezelcanales22@gmail.com">hezelcanales22@gmail.com</a></p>
+      </div>
+
+      <br><h3>Friends</h3>
+      <div class="friends-list" style="display: flex; flex-direction: column; gap: 0.4rem;">
+        <a href="https://www.facebook.com/jane.doe" target="_blank">Jane Doe</a>
+        <a href="https://www.facebook.com/john.smith" target="_blank">John Smith</a>
+        <a href="https://www.facebook.com/mary.ann" target="_blank">Mary Ann</a>
+        <a href="https://www.facebook.com/reymund.ariesga.96" target="_blank">Reymund Ariesga</a>
+      </div>
+
+      <div class="contact-grid">
+        <form class="form" onsubmit="event.preventDefault(); alert('Demo only — no backend connected');">
+          <br><p>LET'S WORK TOGETHER — send me a message!</p>
+          <label>Full name</label>
+          <input id="name" name="name" required>
+          <label>Email</label>
+          <input id="emailForm" type="email" name="email" required>
+          <label>Message</label>
+          <textarea id="message" name="message" required></textarea>
+          <button class="btn primary" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
