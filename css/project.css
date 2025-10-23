@@ -1,0 +1,69 @@
+#projectCover {
+  background: rgba(10, 15, 25, 0.97);
+  backdrop-filter: blur(10px);
+  z-index: 120;
+}
+
+#projectCover .about-inner {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 2rem;
+  color: white;
+}
+
+#projectForm {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+#projectForm input,
+#projectForm textarea {
+  padding: 0.6rem;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+#projectForm button {
+  background: var(--accent);
+  color: white;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+#projectForm button:hover { background: var(--accent-light); }
+
+.project-item {
+  background: rgba(255,255,255,0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.project-item:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-4px);
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 8px;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}

@@ -1,0 +1,17 @@
+<div id="projectCover" class="about-cover" style="display:none;">
+  <div class="about-inner">
+    <button class="close" id="closeProject">Close</button>
+    <h2>My Projects</h2>
+    <p>Add or manage your projects below.</p>
+
+    <form id="projectForm">
+      <input type="text" id="projectTitle" placeholder="Project Title" required>
+      <textarea id="projectDescription" placeholder="Project Description" rows="3" required></textarea>
+      <input type="file" id="projectFile" accept="image/*">
+      <input type="text" id="projectLink" placeholder="Project Link (optional)">
+      <button type="submit">Add Project</button>
+    </form>
+
+    <div class="grid" id="projectList"></div>
+  </div>
+</div>
