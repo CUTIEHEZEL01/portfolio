@@ -1,0 +1,40 @@
+[23-Oct-2025 06:59:57 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'password' in 'field list' in C:\xampp\htdocs\hezel_portfolio\register_user.php:36
+Stack trace:
+#0 C:\xampp\htdocs\hezel_portfolio\register_user.php(36): mysqli->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in C:\xampp\htdocs\hezel_portfolio\register_user.php on line 36
+[25-Oct-2025 02:20:52 Europe/Berlin] PHP Warning:  Undefined variable $otp in C:\xampp\htdocs\hezel_portfolio\send_otp.php on line 18
+[25-Oct-2025 02:20:52 Europe/Berlin] PHP Warning:  Undefined variable $otp in C:\xampp\htdocs\hezel_portfolio\send_otp.php on line 22
+[25-Oct-2025 02:35:54 Europe/Berlin] [DEBUG] Attempting to send OTP to: yoboijanjan30@gmail.com
+[25-Oct-2025 02:35:54 Europe/Berlin] [DEBUG] Subject: Your OTP Code
+[25-Oct-2025 02:35:54 Europe/Berlin] [DEBUG] Message: Hello! Your OTP is: 347026
+[25-Oct-2025 02:35:54 Europe/Berlin] [DEBUG] Headers: From: yoboijanjan30@gmail.com
+
+[25-Oct-2025 02:35:54 Europe/Berlin] [DEBUG] ✅ Mail sent successfully to yoboijanjan30@gmail.com
+[25-Oct-2025 02:38:24 Europe/Berlin] [DEBUG] Attempting to send OTP to: yoboijanjan30@gmail.com
+[25-Oct-2025 02:38:24 Europe/Berlin] [DEBUG] Subject: Your OTP Code
+[25-Oct-2025 02:38:24 Europe/Berlin] [DEBUG] Message: Hello! Your OTP is: 554876
+[25-Oct-2025 02:38:24 Europe/Berlin] [DEBUG] Headers: From: yoboijanjan30@gmail.com
+
+[25-Oct-2025 02:38:24 Europe/Berlin] [DEBUG] ✅ Mail sent successfully to yoboijanjan30@gmail.com
+[25-Oct-2025 03:09:40 Europe/Berlin] Mail error for yoboijanjan30@gmail.com: SMTP Error: Could not authenticate.
+[25-Oct-2025 03:24:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'password' in 'field list' in C:\xampp\htdocs\hezel_portfolio\register_user.php:36
+Stack trace:
+#0 C:\xampp\htdocs\hezel_portfolio\register_user.php(36): mysqli->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in C:\xampp\htdocs\hezel_portfolio\register_user.php on line 36
+[25-Oct-2025 03:27:47 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'password' in 'field list' in C:\xampp\htdocs\hezel_portfolio\register_user.php:36
+Stack trace:
+#0 C:\xampp\htdocs\hezel_portfolio\register_user.php(36): mysqli->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in C:\xampp\htdocs\hezel_portfolio\register_user.php on line 36
+[25-Oct-2025 03:29:39 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'password' in 'field list' in C:\xampp\htdocs\hezel_portfolio\register_user.php:36
+Stack trace:
+#0 C:\xampp\htdocs\hezel_portfolio\register_user.php(36): mysqli->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in C:\xampp\htdocs\hezel_portfolio\register_user.php on line 36
+[25-Oct-2025 03:30:40 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'password' in 'field list' in C:\xampp\htdocs\hezel_portfolio\register_user.php:36
+Stack trace:
+#0 C:\xampp\htdocs\hezel_portfolio\register_user.php(36): mysqli->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in C:\xampp\htdocs\hezel_portfolio\register_user.php on line 36

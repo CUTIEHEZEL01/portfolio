@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hezel Canales - Creative Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN MODAL -->
+  <div class="login-modal" id="loginModal">
+    <div class="login-box">
+      <h2>Login</h2>
+      <label for="loginEmail">Email*</label>
+      <input type="email" id="loginEmail" placeholder="Enter your registered email" required>
+      <label for="loginPassword">Password*</label>
+      <input type="password" id="loginPassword" placeholder="Enter your password" required>
+      <div>
+        <button id="loginBtn">Login</button>
+        <button class="sign-up-btn">Sign up</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Registration MODAL -->
+  <div class="registration-modal" id="registerModal" style="display: none;">
+    <div class="registration-box">
+      <h2>Register</h2>
+      <label for="fullName">Fullname*</label>
+      <input type="text" id="fullName" placeholder="Enter your full name" required><br>
+      <label for="emailRegister">Email*</label>
+      <input type="email" id="emailRegister" placeholder="Enter your valid email" required><br>
+      <label for="passwordRegister">Password*</label>
+      <input type="password" id="passwordRegister" placeholder="Enter your password" required><br>
+      
+      <div class="buttons-register">
+        <button id="getOtpBtn" type="button">Get OTP</button><br>
+        <input type="text" id="otpInput" placeholder="Enter OTP" style="display:none;"><br>
+        <button id="confirmOtpBtn" type="button" style="display:none;">Confirm OTP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN PORTFOLIO CONTENT -->
+  <div id="portfolioContent" style="display:none;">
+    <header>
+      <div class="logo">HZ</div>
+      <div class="nav-right">
+        <a href="#" id="openAbout">About</a>
+        <a href="#" id="openProject">Project</a>
+        <a href="#" id="openContact">Contact</a>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="creative-hero">
+        <div class="hero-inner">
+          <img src="viber_image_2025-10-07_12-48-07-272.jpg" alt="Profile Picture" class="hero-avatar">
+          <h1>PORTFOLIO</h1>
+          <p>Hiiiiiii kinsa ka!<br>Behind Trust</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© <span id="year"></span> Hezel Canales — Cebu, Philippines</div>
+    </footer>
+  </div>
+
+  <!-- ABOUT FULLSCREEN -->
+  <div id="aboutCover" class="cover" style="display:none;">
+    <div class="inner">
+      <button class="close" id="closeAbout">Close</button>
+      <h2>ABOUT ME</h2>
+      <p>Hey whatss up! I am Hezel Canales your extrovert girl with talkative mouth.</p>
+      <br><h3><u>Personal Information</u></h3>
+      <div class="info-list">
+        <p><strong>Age:</strong> 21 yrs. old</p>
+        <p><strong>Sex:</strong> Female</p>
+        <p><strong>Height:</strong> 4'11"</p>
+        <p><strong>Weight:</strong> 40 kg</p>
+        <p><strong>Birthday:</strong> January 22, 2004</p>
+        <p><strong>Birthplace:</strong> Diit, Agutaya, Palawan</p>
+        <p><strong>Civil Status:</strong> Single</p>
+        <p><strong>Nationality:</strong> Filipino</p>
+        <p><strong>Religion:</strong> Catholic</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT FULLSCREEN -->
+<div id="projectCover" class="about-cover" style="display:none;">
+  <div class="about-inner">
+    <button class="close" id="closeProject">Close</button>
+    <h2>My Projects</h2>
+    <p>Add, view, or delete your projects below.</p>
+
+    <form id="projectForm">
+      <input type="text" id="projectTitle" placeholder="Project Title" required>
+      <textarea id="projectDescription" placeholder="Project Description" rows="3" required></textarea>
+      <input type="file" id="projectFile" accept="image/*">
+      <input type="text" id="projectLink" placeholder="Project Link (optional)">
+      <button type="submit">Add Project</button>
+    </form>
+
+    <div class="grid" id="projectList"></div>
+  </div>
+</div>
+
+
+  <!-- CONTACT FULLSCREEN -->
+  <section id="contactCover" class="about-cover" style="display:none;">
+    <div class="about-inner">
+      <button id="closeContact" class="close">Close</button>
+      <h2>CONTACT</h2>
+
+      <div class="info-list">
+        <h3><u>HEZEL S. CANALES</u></h3>
+        <p>Purok Bilason, Pang-Pang, Tapilon, Daanbantayan, Cebu</p>
+        <p><strong>Contact:</strong> 09949510845 / 09203570051</p>
+        <p><strong>Email:</strong> 
+          <a href="mailto:hezelcanales22@gmail.com">hezelcanales22@gmail.com</a>
+        </p>
+      </div>
+
+      <h3>Contact Me</h3>
+      <form id="contactForm">
+        <input type="text" id="contactName" placeholder="Your Name" required>
+        <input type="email" id="contactEmail" placeholder="Your Email" required>
+        <textarea id="contactMessage" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+  </body>
+</html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Display current year
+  const yearElement = document.getElementById('year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  // Modal elements
+  const loginModal = document.getElementById("loginModal");
+  const registerModal = document.getElementById("registerModal");
+  const portfolioContent = document.getElementById("portfolioContent");
+  const getOtpBtn = document.getElementById("getOtpBtn");
+  const confirmOtpBtn = document.getElementById("confirmOtpBtn");
+  const signUpBtns = document.querySelectorAll('.sign-up-btn');
+  const fullName = document.getElementById("fullName");
+  const emailRegister = document.getElementById("emailRegister");
+  const passwordRegister = document.getElementById("passwordRegister");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const loginBtn = document.getElementById("loginBtn");
+  const otpInput = document.getElementById("otpInput");
+
+  let generatedOtp = "";
+
+  // Sign-up button to switch modals
+  signUpBtns.forEach(button => {
+    button.addEventListener('click', () => {
+      console.log("Sign up button clicked ✅");
+      if (loginModal) loginModal.style.display = "none";
+      if (registerModal) registerModal.style.display = "flex";
+    });
+  });
+
+  // Admin access shortcut via URL param
+  // const urlParams = new URLSearchParams(window.location.search);
+  // if (urlParams.get("admin") === "true" && loginModal && registerModal && portfolioContent && logoutBtn) {
+  //   loginModal.style.display = "none";
+  //   registerModal.style.display = "block";
+  //   portfolioContent.style.display = "block";
+  //   logoutBtn.style.display = "inline-block";
+  // }
+
+  // Get OTP button logic
+// if (getOtpBtn) {
+//   getOtpBtn.addEventListener("click", () => {
+//     console.log('Clicked Get OTP');
+//     console.log('Full Name:', fullName?.value);
+//     console.log('Email:', emailRegister?.value);
+//     console.log('Password:', passwordRegister?.value);
+
+//     if (
+//       fullName && emailRegister && passwordRegister &&
+//       fullName.value.trim() !== "" &&
+//       emailRegister.value.includes("@gmail.com") &&
+//       passwordRegister.value.trim() !== ""
+//     ) {
+//       console.log("Sending POST request to send_otp.php...");
+
+//       fetch("send_otp.php", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/x-www-form-urlencoded",
+//         },
+//         body: `email=${encodeURIComponent(emailRegister.value)}`,
+//       })
+//       .then(res => {
+//         console.log("Raw Response:", res);
+//         return res.json();
+//       })
+//       .then(data => {
+//         console.log("Parsed JSON:", data);
+
+//         if (data.success) {
+//           console.log("✅ OTP successfully sent. OTP:", data.otp);
+//           generatedOtp = data.otp;
+//           alert("📩 OTP sent to your email!");
+//           if (otpInput) otpInput.style.display = "block";
+//           if (confirmOtpBtn) confirmOtpBtn.style.display = "block";
+//         } else {
+//           console.error("❌ Backend reported failure:", data.message);
+//           alert("❌ Failed to send OTP: " + data.message);
+//         }
+//       })
+//       .catch(err => {
+//         console.error("❌ Fetch error:", err);
+//         alert("❌ An unexpected error occurred while sending OTP.");
+//       });
+//     } else {
+//       alert("⚠️ Please enter your full name and a valid Gmail address!");
+//     }
+//   });
+// }
+
+if (getOtpBtn) {
+  getOtpBtn.addEventListener("click", () => {
+    console.log('Clicked Get OTP');
+
+    if (
+      fullName && emailRegister && passwordRegister &&
+      fullName.value.trim() !== "" &&
+      emailRegister.value.includes("@gmail.com") &&
+      passwordRegister.value.trim() !== ""
+    ) {
+      fetch("send_otp.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `email=${encodeURIComponent(emailRegister.value)}`,
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          generatedOtp = data.otp;
+          console.log("✅ Generated OTP:", generatedOtp); // <-- Log generated OTP
+          alert("📩 OTP sent to your email!");
+
+          // ✅ Dynamically create OTP input if it doesn't exist
+          let otpEl = document.getElementById("otpInputDynamic");
+          if (!otpEl) {
+            otpEl = document.createElement("input");
+            otpEl.type = "text";
+            otpEl.id = "otpInputDynamic";
+            otpEl.placeholder = "Enter OTP";
+            otpEl.style.marginTop = "10px";
+            registerModal.querySelector(".registration-box").appendChild(otpEl);
+          }
+
+          // ✅ Dynamically create Confirm button if it doesn't exist
+          let confirmBtnEl = document.getElementById("confirmOtpBtnDynamic");
+          if (!confirmBtnEl) {
+            confirmBtnEl = document.createElement("button");
+            confirmBtnEl.id = "confirmOtpBtnDynamic";
+            confirmBtnEl.type = "button";
+            confirmBtnEl.textContent = "Confirm OTP";
+            confirmBtnEl.style.marginTop = "10px";
+            registerModal.querySelector(".registration-box").appendChild(confirmBtnEl);
+
+            // Add the click listener for OTP confirmation
+            confirmBtnEl.addEventListener("click", () => {
+              const otpValue = otpEl.value.trim();
+              console.log("🔹 User entered OTP:", otpValue); // <-- Log user input
+              
+              if (!otpValue) {
+                alert("⚠️ Please enter the OTP.");
+                return;
+              }
+
+              if (otpValue === String(generatedOtp)) {
+                console.log("✅ OTP matched. Proceed to register...");
+                
+                fetch("register_user.php", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                  body: `fullName=${encodeURIComponent(fullName.value)}&emailRegister=${encodeURIComponent(emailRegister.value)}&passwordRegister=${encodeURIComponent(passwordRegister.value)}`
+                })
+                .then(res => res.json())
+                .then(data => {
+                  if (data.success) {
+                    alert("🎉 Registration successful!");
+                    registerModal.style.display = "none";
+                    otpEl.remove(); // remove OTP input
+                    confirmBtnEl.remove(); // remove Confirm button
+
+                      // ✅ Show login modal so user can log in
+                      if (loginModal) {
+                        loginModal.style.display = "flex";
+                      }
+
+                      // Optionally, clear registration fields
+                      fullName.value = "";
+                      emailRegister.value = "";
+                      passwordRegister.value = "";
+                  } else {
+                    alert("❌ Failed to register: " + data.message);
+                  }
+                })
+                .catch(err => {
+                  console.error(err);
+                  alert("❌ Registration error.");
+                });
+
+              } else {
+                console.warn("❌ OTP mismatch!"); // <-- Log mismatch
+                alert("❌ Invalid OTP. Try again.");
+              }
+            });
+          }
+
+          otpEl.focus(); // focus the OTP input
+        } else {
+          alert("❌ Failed to send OTP: " + data.message);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("❌ Error sending OTP.");
+      });
+    } else {
+      alert("⚠️ Please fill in your full name, Gmail, and password!");
+    }
+  });
+}
+
+  // Login button logic
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      const email = document.getElementById("loginEmail");
+      const password = document.getElementById("loginPassword");
+
+      if (!email?.value || !password?.value) {
+        alert("⚠️ Please enter both email and password!");
+        return;
+      }
+
+      fetch("login_user.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `email=${encodeURIComponent(email.value)}&password=${encodeURIComponent(password.value)}`
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          alert("✅ Login successful! Welcome back, " + data.fullName);
+
+          if (portfolioContent) portfolioContent.style.display = "block";
+          if (loginModal) loginModal.style.display = "none";
+          if (logoutBtn) logoutBtn.style.display = "inline-block";
+
+          localStorage.setItem("loggedIn", "true");
+        } else {
+          alert("❌ Login failed: " + data.message);
+        }
+      })
+      .catch(err => {
+        console.error("❌ Login error:", err);
+        alert("❌ An unexpected error occurred during login.");
+      });
+    });
+  }
+
+  // Auto-login on page load if previously logged in
+  if (localStorage.getItem("loggedIn") === "true") {
+    if (portfolioContent) portfolioContent.style.display = "block";
+    if (loginModal) loginModal.style.display = "none";
+    if (logoutBtn) logoutBtn.style.display = "inline-block";
+  }
+
+  // Logout button logic
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("loggedIn");
+      alert("🔒 Logged out successfully.");
+      if (portfolioContent) portfolioContent.style.display = "none";
+      if (loginModal) loginModal.style.display = "flex";
+      if (logoutBtn) logoutBtn.style.display = "none";
+      if (otpInput) otpInput.value = "";
+      generatedOtp = "";
+    });
+  }
+
+  // --- ABOUT Section ---
+  const aboutCover = document.getElementById('aboutCover');
+  const openAbout = document.getElementById('openAbout');
+  const closeAbout = document.getElementById('closeAbout');
+
+  if (openAbout && aboutCover) {
+    openAbout.addEventListener('click', (e) => {
+      e.preventDefault();
+      aboutCover.style.display = "block";
+    });
+  }
+
+  if (closeAbout && aboutCover) {
+    closeAbout.addEventListener('click', () => {
+      aboutCover.style.display = "none";
+    });
+  }
+
+  // --- PROJECT Section ---
+  const projectCover = document.getElementById('projectCover');
+  const openProject = document.getElementById('openProject');
+  const closeProject = document.getElementById('closeProject');
+  const projectForm = document.getElementById('projectForm');
+  const projectList = document.getElementById('projectList');
+
+  if (openProject && projectCover) {
+    openProject.addEventListener('click', (e) => {
+      e.preventDefault();
+      projectCover.style.display = "block";
+      loadProjects();
+    });
+  }
+
+  if (closeProject && projectCover) {
+    closeProject.addEventListener('click', () => {
+      projectCover.style.display = "none";
+    });
+  }
+
+  function loadProjects() {
+    if (!projectList) return;
+    projectList.innerHTML = '';
+    const projects = JSON.parse(localStorage.getItem('myProjects')) || [];
+
+    if (projects.length === 0) {
+      projectList.innerHTML = `<p style="text-align:center;color:#aaa;">No projects yet. Add one above!</p>`;
+      return;
+    }
+
+    projects.forEach((p, index) => {
+      const card = document.createElement('article');
+      card.classList.add('card');
+      card.innerHTML = `
+        <a href="${p.link || '#'}" target="_blank" rel="noopener noreferrer">
+          <img src="${p.image || 'https://via.placeholder.com/400x200?text=No+Image'}" alt="${p.title}">
+          <div class="meta">
+            <h3>${p.title}</h3>
+            <p class="sub">${p.description || ''}</p>
+          </div>
+        </a>
+        <button class="delete-btn" data-index="${index}">🗑 Delete</button>
+      `;
+      projectList.appendChild(card);
+    });
+
+    // Attach delete button listeners
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const i = e.target.dataset.index;
+        deleteProject(i);
+      });
+    });
+  }
+
+  if (projectForm) {
+    projectForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title = document.getElementById('projectTitle').value.trim();
+      const description = document.getElementById('projectDescription').value.trim();
+      const fileInput = document.getElementById('projectFile');
+      const link = document.getElementById('projectLink').value.trim();
+
+      if (!title || !description) {
+        alert("⚠️ Please fill in both title and description.");
+        return;
+      }
+
+      let image = '';
+      if (fileInput && fileInput.files.length > 0) {
+        image = await toBase64(fileInput.files[0]);
+      }
+
+      const newProject = { title, description, image, link };
+      const projects = JSON.parse(localStorage.getItem('myProjects')) || [];
+      projects.push(newProject);
+      localStorage.setItem('myProjects', JSON.stringify(projects));
+
+      projectForm.reset();
+      loadProjects();
+    });
+  }
+
+  function toBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
+
+  function deleteProject(index) {
+    const projects = JSON.parse(localStorage.getItem('myProjects')) || [];
+    if (index >= 0 && index < projects.length) {
+      if (confirm(`Delete project "${projects[index].title}"?`)) {
+        projects.splice(index, 1);
+        localStorage.setItem('myProjects', JSON.stringify(projects));
+        loadProjects();
+      }
+    }
+  }
+
+  loadProjects();
+
+  // --- CONTACT Section ---
+  const contactCover = document.getElementById('contactCover');
+  const openContact = document.getElementById('openContact');
+  const closeContact = document.getElementById('closeContact');
+
+  if (openContact && contactCover) {
+    openContact.addEventListener('click', (e) => {
+      e.preventDefault();
+      contactCover.style.display = "block";
+    });
+  }
+
+  if (closeContact && contactCover) {
+    closeContact.addEventListener('click', () => {
+      contactCover.style.display = "none";
+    });
+  }
+});
+</script>
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function () {
+  // // ✅ Display current year
+  const yearElement = document.getElementById('year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  // ✅ Sign-up button click handler
+  document.querySelectorAll('.sign-up-btn').forEach(button => {
+    button.addEventListener('click', function () {
+      console.log("Sign up button clicked ✅");
+      document.getElementById("loginModal").style.display = "none";
+      document.getElementById("registerModal").style.display = "flex";
+    });
+  });
+
+  // Keep the rest of your script logic here...
+  // ✅ Display current year
+  // const yearElement = document.getElementById('year');
+  // if (yearElement) {
+  //   yearElement.textContent = new Date().getFullYear();
+  // 
+
+  // 🔹 Login system setup
+  const loginModal = document.getElementById("loginModal");
+  const registerModal = document.getElementById("registerModal");
+  const portfolioContent = document.getElementById("portfolioContent");
+  const getOtpBtn = document.getElementById("getOtpBtn");
+  const confirmOtpBtn = document.getElementById("confirmOtpBtn");
+  const signUpBtn = document.getElementById("signUpBtn");
+  const otpInput = document.getElementById("otpInput");
+  const fullName = document.getElementById("fullName");
+  const emailRegister = document.getElementById("emailRegister");
+  const passwordRegister = document.getElementById("passwordRegister");
+  const logoutBtn = document.getElementById("logoutBtn");
+  let generatedOtp = "";
+
+
+  // 🔹 Admin access shortcut
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("admin") === "true" && loginModal && registerModal && portfolioContent && logoutBtn) {
+    loginModal.style.display = "none";
+    registerModal.style.display = "block";
+    portfolioContent.style.display = "block";
+    logoutBtn.style.display = "inline-block";
+  }
+
+  // 🔹 OTP System
+  //sending otp to valid email
+  getOtpBtn.addEventListener("click", () => {
+
+    console.log('Full Name:', fullName.value);
+    console.log('Email:', emailRegister.value);
+    console.log('Password:', passwordRegister.value);
+    if (
+      emailRegister &&
+      fullName &&
+      emailRegister.value.includes("@gmail.com") &&
+      fullName.value.trim() !== ""
+    ) {
+      fetch("send_otp.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `email=${encodeURIComponent(emailRegister.value)}`,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Parsed JSON:", data);
+          console.log("OTP received from server:", data.otp); // ✅ Add this
+
+          if (data.success) {
+            generatedOtp = data.otp;
+            alert("📩 OTP sent to your email!");
+            if (otpInput && confirmOtpBtn) {
+              otpInput.style.display = "block";
+              confirmOtpBtn.style.display = "block";
+            }
+          } else {
+            alert("❌ Failed to send OTP: " + data.message);
+          }
+        })
+        .catch((err) => {
+          console.error("❌ Fetch error:", err);
+          alert("❌ An unexpected error occurred while sending OTP.");
+        });
+    } else {
+      alert("⚠️ Please enter your full name and a valid email address!");
+    }
+  });
+
+  //confirm otp from email
+  if (confirmOtpBtn) {
+    confirmOtpBtn.addEventListener("click", () => {
+      console.log("User entered OTP:", otpInput.value);
+      console.log("Generated OTP (for comparison):", generatedOtp);
+
+        if (otpInput && otpInput.value.trim() === String(generatedOtp)) {
+        // OTP matched
+        fetch("register_user.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: `fullName=${encodeURIComponent(fullName.value)}&email=${encodeURIComponent(emailRegister.value)}&password=${encodeURIComponent(passwordRegister.value)}`
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            alert("🎉 Registration successful! You can now log in.");
+            if (registerModal) registerModal.style.display = "none";
+            if (loginModal) loginModal.style.display = "flex";
+          } else {
+            alert("❌ Failed to register: " + data.message);
+          }
+        });
+      }
+    });
+  }
+
+  //load main content after log in
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      const email = document.getElementById("loginEmail");
+      const password = document.getElementById("loginPassword");
+
+      if (!email.value || !password.value) {
+        alert("⚠️ Please enter both email and password!");
+        return;
+      }
+
+      fetch("login_user.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `email=${encodeURIComponent(email.value)}&password=${encodeURIComponent(password.value)}`
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          alert("✅ Login successful! Welcome back, " + data.fullName);
+          
+          // Show portfolio
+          if (portfolioContent) portfolioContent.style.display = "block";
+
+          // Hide login modal
+          if (loginModal) loginModal.style.display = "none";
+          if (logoutBtn) logoutBtn.style.display = "inline-block";
+
+          // Optional: Set localStorage to persist login
+          localStorage.setItem("loggedIn", "true");
+
+        } else {
+          alert("❌ Login failed: " + data.message);
+        }
+      });
+    });
+  }
+
+  //load user automatically upon page refresh
+  window.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("loggedIn") === "true") {
+      portfolioContent.style.display = "block";
+      if (loginModal) loginModal.style.display = "none";
+      if (logoutBtn) logoutBtn.style.display = "inline-block";
+    }
+  });
+
+  //log out button
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("loggedIn");
+      portfolioContent.style.display = "none";
+      if (loginModal) loginModal.style.display = "flex";
+      if (logoutBtn) logoutBtn.style.display = "none";
+      alert("🔒 Logged out successfully.");
+    });
+  }
+
+  // .then(res => res.text())
+  // .then(text => {
+  //   console.log("Raw response:", text);
+  //   try {
+  //     const data = JSON.parse(text);
+  //     console.log("Parsed JSON:", data);
+
+  //     if (data.success) {
+  //       generatedOtp = data.otp;
+  //       alert("📩 OTP sent to your email!");
+  //       if (otpInput && confirmOtpBtn) {
+  //         otpInput.style.display = "block";
+  //         confirmOtpBtn.style.display = "block";
+  //       }
+  //     } else {
+  //       alert("❌ Failed to send OTP: " + data.message);
+  //     }
+  //   } catch (err) {
+  //     console.error("❌ JSON parse failed:", err);
+  //   }
+  // });
+
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      alert("👋 You have logged out.");
+      if (portfolioContent) portfolioContent.style.display = "none";
+      if (loginModal) loginModal.style.display = "flex";
+      if (otpInput) otpInput.value = "";
+      generatedOtp = "";
+    });
+  }
+
+  // 🔹 ABOUT Section
+  const aboutCover = document.getElementById('aboutCover');
+  const openAbout = document.getElementById('openAbout');
+  const closeAbout = document.getElementById('closeAbout');
+
+  if (openAbout && aboutCover) {
+    openAbout.addEventListener('click', (e) => {
+      e.preventDefault();
+      aboutCover.style.display = "block";
+    });
+  }
+
+  if (closeAbout && aboutCover) {
+    closeAbout.addEventListener('click', () => {
+      aboutCover.style.display = "none";
+    });
+  }
+
+  // PROJECT SECTION
+  const projectCover = document.getElementById('projectCover');
+  const openProject = document.getElementById('openProject');
+  const closeProject = document.getElementById('closeProject');
+  const projectForm = document.getElementById('projectForm');
+  const projectList = document.getElementById('projectList');
+
+  // Open project window
+  if (openProject) {
+    openProject.addEventListener('click', (e) => {
+      e.preventDefault();
+      projectCover.style.display = "block";
+      loadProjects();
+    });
+  }
+
+  // Close project window
+  if (closeProject) {
+    closeProject.addEventListener('click', () => projectCover.style.display = "none");
+  }
+
+  // Load saved projects
+  function loadProjects() {
+    projectList.innerHTML = '';
+    const projects = JSON.parse(localStorage.getItem('myProjects')) || [];
+
+    if (projects.length === 0) {
+      projectList.innerHTML = `<p style="text-align:center;color:#aaa;">No projects yet. Add one above!</p>`;
+      return;
+    }
+
+    projects.forEach((p, index) => {
+      const card = document.createElement('article');
+      card.classList.add('card');
+      card.innerHTML = `
+        <a href="${p.link || '#'}" target="_blank">
+          <img src="${p.image || 'https://via.placeholder.com/400x200?text=No+Image'}" alt="${p.title}">
+          <div class="meta">
+            <h3>${p.title}</h3>
+            <p class="sub">${p.description || ''}</p>
+          </div>
+        </a>
+        <button class="delete-btn" data-index="${index}">🗑 Delete</button>
+      `;
+      projectList.appendChild(card);
+    });
+
+    // Attach delete button listeners
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const i = e.target.dataset.index;
+        deleteProject(i);
+      });
+    });
+  }
+
+  // Add new project
+  if (projectForm) {
+    projectForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title = document.getElementById('projectTitle').value.trim();
+      const description = document.getElementById('projectDescription').value.trim();
+      const fileInput = document.getElementById('projectFile');
+      const link = document.getElementById('projectLink').value.trim();
+
+      if (!title || !description) {
+        alert("⚠️ Please fill in both title and description.");
+        return;
+      }
+
+      let image = '';
+      if (fileInput.files.length > 0) {
+        image = await toBase64(fileInput.files[0]);
+      }
+
+      const newProject = { title, description, image, link };
+      const projects = JSON.parse(localStorage.getItem('myProjects')) || [];
+      projects.push(newProject);
+      localStorage.setItem('myProjects', JSON.stringify(projects));
+
+      projectForm.reset();
+      loadProjects();
+    });
+  }
+
+  // Convert image to Base64
+  function toBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  }
+
+  // Delete project by index
+  function deleteProject(index) {
+    const projects = JSON.parse(localStorage.getItem('myProjects')) || [];
+    if (confirm(`Delete project "${projects[index].title}"?`)) {
+      projects.splice(index, 1);
+      localStorage.setItem('myProjects', JSON.stringify(projects));
+      loadProjects();
+    }
+  }
+
+  // Load existing projects when opened
+  loadProjects();
+
+
+  // 🔹 CONTACT Section
+  const contactCover = document.getElementById('contactCover');
+  const openContact = document.getElementById('openContact'); // ✅ fixed selector
+  const closeContact = document.getElementById('closeContact');
+
+  if (openContact && contactCover) {
+    openContact.addEventListener('click', (e) => {
+      e.preventDefault();
+      contactCover.style.display = "block";
+    });
+  }
+
+  if (closeContact && contactCover) {
+    closeContact.addEventListener('click', () => {
+      contactCover.style.display = "none";
+    });
+  }
+
+  });
+</script> -->
+
