@@ -2,12 +2,11 @@
   position: fixed;
   inset: 0;
   background: rgba(5,10,20,.95);
-  display: none;
+  display: block;  /* ← Change to block */
   overflow-y: auto;
   z-index: 110;
   padding: 3rem;
 }
-
 .about-inner {
   max-width: 800px;
   margin: auto;

@@ -1,7 +1,6 @@
-<section id="contactCover" class="about-cover" style="display:none;">
+<section id="contactCover" class="about-cover">
   <div class="about-inner">
     <button id="closeContact" class="close">Close</button>
-    <h2>CONTACT</h2>
 
     <div class="info-list">
       <h3><u>HEZEL S. CANALES</u></h3>
@@ -14,10 +13,20 @@
 
     <h3>Contact Me</h3>
     <form id="contactForm">
-      <input type="text" id="contactName" placeholder="Your Name" required>
-      <input type="email" id="contactEmail" placeholder="Your Email" required>
-      <textarea id="contactMessage" placeholder="Your Message" rows="4" required></textarea>
+      <input type="text" id="contactName" name="contactName" placeholder="Your Name" required>
+      <input type="email" id="contactEmail" name="contactEmail" placeholder="Your Email" required>
+      <textarea id="contactMessage" name="contactMessage" placeholder="Your Message" rows="4" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </div>
 </section>
+
+<!-- EmailJS library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- Initialize EmailJS -->
+<script>
+  emailjs.init({
+    publicKey: "7-hA22t2u-HIX9jur"
+  });
+</script>

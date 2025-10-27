@@ -18,9 +18,14 @@
   <?php include 'login.html'; ?>
   <?php include 'main.html';?>
   <?php include 'about.html'; ?>
-  <?php include 'project.html'; ?>
-  <?php include 'contact.html'; ?>
+  <?php include 'project.php'; ?>
+  <?php include 'contact.html';?>
 
-  <script src="script.js"></script>
+<script src="js/main.js"></script>
+<script src="js/login.js"></script>
+<script src="js/about.js"></script>
+<script src="js/project.js"></script>
+<script src="js/contact.js"></script>
+
 </body>
 </html>

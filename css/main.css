@@ -46,6 +46,20 @@ header {
   color: #fff;
 }
 
+.nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+  text-decoration: none;
+  font-size: inherit;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
 .logout-btn {
   background: #c62828 !important;
   color: white !important;
