@@ -135,6 +135,16 @@
       </form>
     </div>
   </section>
+
+  <!-- EmailJS library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- Initialize EmailJS -->
+<script>
+  emailjs.init({
+    publicKey: "7-hA22t2u-HIX9jur"
+  });
+</script>
   </body>
 </html>
 <script>
@@ -537,6 +547,25 @@ if (getOtpBtn) {
   if (closeContact && contactCover) {
     closeContact.addEventListener('click', () => {
       contactCover.style.display = "none";
+
+      const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_r3cfncx", "template_l93dl3k", this)
+      .then(() => {
+        alert("✅ Message sent successfully!");
+        contactForm.reset();
+      })
+      .catch((error) => {
+        console.error("❌ Failed to send message:", error);
+        alert("⚠️ Failed to send message. Please try again later.");
+      });
+  });
+}
+
     });
   }
 });

@@ -1,8 +1,8 @@
 <?php
-$to = "do.earljan@gmail.com";
+$to = "";
 $subject = "Test mail";
 $message = "Hello! This is a test mail.";
-$headers = "From: anjelou.felizarta.15@gmail.com\r\n";
+$headers = "From: hezelcanales22@gmail.com'\r\n";
 
 if(mail($to, $subject, $message, $headers)) {
     echo "Mail sent!";
