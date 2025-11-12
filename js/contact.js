@@ -1,4 +1,3 @@
-
 const contactCover = document.getElementById('contactCover');
 const openContact = document.getElementById('openContact');
 const closeContact = document.getElementById('closeContact');
@@ -6,7 +5,7 @@ const closeContact = document.getElementById('closeContact');
 if (openContact && contactCover) {
   openContact.addEventListener('click', (e) => {
     e.preventDefault();
-    contactCover.style.display = "none"; // Hide on load
+    contactCover.style.display = "block"; // Hide on load
   });
 }
 

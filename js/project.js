@@ -1,72 +1,82 @@
 // project.js 
-const projectCover = document.getElementById('projectCover');
-const openProject = document.getElementById('openProject');
-const closeProject = document.getElementById('closeProject');
-const projectForm = document.getElementById('projectForm');
-const projectList = document.getElementById('projectList');
+document.addEventListener("DOMContentLoaded", () => {
+  const projectCover = document.getElementById('projectCover');
+  const openProject = document.getElementById('openProject');
+  const closeProject = document.getElementById('closeProject');
+  const projectForm = document.getElementById('projectForm');
+  const projectList = document.getElementById('projectList');
 
-let editIndex = null;
+  let editIndex = null;
 
-// ==========================
-// CREATE VIEW MODAL
-// ==========================
-const viewModal = document.createElement('div');
-viewModal.id = "viewModal";
-viewModal.style.display = "none";
-viewModal.style.position = "fixed";
-viewModal.style.top = "0";
-viewModal.style.left = "0";
-viewModal.style.width = "100%";
-viewModal.style.height = "100%";
-viewModal.style.background = "rgba(0,0,0,0.8)";
-viewModal.style.backdropFilter = "blur(4px)";
-viewModal.style.justifyContent = "center";
-viewModal.style.alignItems = "center";
-viewModal.style.zIndex = "9999";
-viewModal.innerHTML = `
-  <div id="viewModalContent" style="
-    background: var(--card);
-    color: white;
-    border-radius: 20px;
-    padding: 20px;
-    max-width: 500px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    position: relative;">
-    <button id="closeView" style="
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: var(--accent);
-      border: none;
-      color: white;
-      border-radius: 8px;
-      padding: 5px 10px;
-      cursor: pointer;">Close</button>
-    <div id="viewContent"></div>
-  </div>
-`;
-document.body.appendChild(viewModal);
-
-// ==========================
-// OPEN / CLOSE PROJECT PANEL
-// ==========================
-if (openProject) {
-  openProject.addEventListener('click', (e) => {
-    e.preventDefault();
-    projectCover.style.display = "block";
-    loadProjects();
-  });
-}
-
-if (closeProject) {
-  closeProject.addEventListener('click', () => projectCover.style.display = "none");
-}
-
-document.getElementById('closeView').addEventListener('click', () => {
+  // ==========================
+  // CREATE VIEW MODAL
+  // ==========================
+  const viewModal = document.createElement('div');
+  viewModal.id = "viewModal";
   viewModal.style.display = "none";
+  viewModal.style.position = "fixed";
+  viewModal.style.top = "0";
+  viewModal.style.left = "0";
+  viewModal.style.width = "100%";
+  viewModal.style.height = "100%";
+  viewModal.style.background = "rgba(0,0,0,0.8)";
+  viewModal.style.backdropFilter = "blur(4px)";
+  viewModal.style.justifyContent = "center";
+  viewModal.style.alignItems = "center";
+  viewModal.style.zIndex = "9999";
+  viewModal.innerHTML = `
+    <div id="viewModalContent" style="
+      background: var(--card);
+      color: white;
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      position: relative;">
+      <button id="closeView" style="
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: var(--accent);
+        border: none;
+        color: white;
+        border-radius: 8px;
+        padding: 5px 10px;
+        cursor: pointer;">Close</button>
+      <div id="viewContent"></div>
+    </div>
+  `;
+  document.body.appendChild(viewModal);
+
+  // ==========================
+  // OPEN / CLOSE PROJECT PANEL
+  // ==========================
+  if (openProject) {
+    openProject.addEventListener('click', (e) => {
+      e.preventDefault();
+      projectCover.style.display = "block";
+      loadProjects();
+    });
+  } else {
+    console.log("⚠️ openProject not found in DOM");
+  }
+
+  if (closeProject) {
+    closeProject.addEventListener('click', () => {
+      projectCover.style.display = "none";
+    });
+  }
+
+  const closeViewBtn = document.getElementById('closeView');
+  if (closeViewBtn) {
+    closeViewBtn.addEventListener('click', () => {
+      viewModal.style.display = "none";
+    });
+  }
 });
+
 
 // ==========================
 // FILE TO BASE64
@@ -134,7 +144,7 @@ if (projectForm) {
     e.preventDefault();
     const title = document.getElementById('projectTitle').value.trim();
     const description = document.getElementById('projectDescription').value.trim();
-    const fileInput = document.getElementById('projectFile');
+    const fileInput = document.getElementById('File');
     const link = document.getElementById('projectLink').value.trim();
 
     if (!title || !description) {
@@ -188,7 +198,7 @@ function editProject(index) {
   const addBtn = projectForm.querySelector('button[type="submit"]');
   addBtn.textContent = "Update Project";
 
-  document.getElementById('projectFile').value = '';
+  document.getElementById('File').value = '';
   projectForm.scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -226,28 +236,3 @@ function viewProject(index) {
 // INITIAL LOAD
 // ==========================
 loadProjects();
-
-document.getElementById('projectForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(this);
-    
-    try {
-        const response = await fetch('upload_project.php', {
-            method: 'POST',
-            body: formData
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            alert('Project added successfully!');
-            this.reset();
-            location.reload(); // Reload to show new project
-        } else {
-            alert('Error: ' + result.message);
-        }
-    } catch (error) {
-        alert('Error: ' + error.message);
-    }
-});

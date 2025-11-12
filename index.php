@@ -15,11 +15,13 @@
 </head>
 <body>
 
-  <?php include 'login.html'; ?>
-  <?php include 'main.html';?>
-  <?php include 'about.html'; ?>
+  <?php include 'login.php'; ?>
+  <?php include 'main.php';?>
+  <?php include 'about.php'; ?>
   <?php include 'project.php'; ?>
-  <?php include 'contact.html';?>
+  <?php include 'contact.php';?>
+
+  <?php include'php/db_connect.php'; ?>
 
 <script src="js/main.js"></script>
 <script src="js/login.js"></script>

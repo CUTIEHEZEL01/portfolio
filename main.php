@@ -1,3 +1,5 @@
+<body>
+  
 <div id="portfolioContent" style="display:none;">
   <header>
     <div class="logo">HEZEL CANALES</div>
@@ -29,3 +31,6 @@
     <div class="container">© <span id="year"></span> Hezel Canales — Cebu, Philippines</div>
   </footer>
 </div>
+
+<script src="js/project.js"></script>
+</body>

@@ -6,22 +6,17 @@
     <p>Add or manage your projects below.</p>
 
     <!-- Add / Edit Form -->
-    <form id="projectForm" action="upload_project.php" method="POST" enctype="multipart/form-data">
+    <form id="projectForm" action="php/upload_project.php" method="post" enctype="multipart/form-data">
   <input type="hidden" id="editIndex">
   <input type="text" name="project_title" id="projectTitle" placeholder="Project Title" required>
-  
   <textarea name="project_description" id="projectDescription" placeholder="Project Description" rows="3" required></textarea>
-  
-  <input type="file" name="file" id="projectFile" accept="image/*" required>
-  
+  <input type="file" name="file_path" id="File" accept="image/*">
   <input type="text" name="project_link" id="projectLink" placeholder="Project Link (optional)">
-  
   <button type="submit" id="submitBtn">Add Project</button>
 </form>
 
     <!-- Project List -->
     <div class="grid" id="projectList">
-  <?php include('fetch_projects.php'); ?>
 </div>
 
 </div>
@@ -41,4 +36,4 @@
     </div>
   </div>
 </div>
-
+</div>

@@ -1,6 +1,6 @@
 <?php
 // fetch_projects.php
-require_once 'db_connection.php';
+require_once 'db_connect.php';
 
 try {
     $sql = "SELECT * FROM projects ORDER BY created_at DESC";

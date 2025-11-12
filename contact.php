@@ -1,4 +1,4 @@
-<section id="contactCover" class="about-cover">
+<section id="contactCover" class="about-cover" style="display: none;">
   <div class="about-inner">
     <button id="closeContact" class="close">Close</button>
 
@@ -30,3 +30,5 @@
     publicKey: "7-hA22t2u-HIX9jur"
   });
 </script>
+
+<script src="js/contact.js"></script>
