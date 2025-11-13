@@ -6,34 +6,15 @@
     <p>Add or manage your projects below.</p>
 
     <!-- Add / Edit Form -->
-    <form id="projectForm" action="php/upload_project.php" method="post" enctype="multipart/form-data">
-  <input type="hidden" id="editIndex">
-  <input type="text" name="project_title" id="projectTitle" placeholder="Project Title" required>
-  <textarea name="project_description" id="projectDescription" placeholder="Project Description" rows="3" required></textarea>
-  <input type="file" name="file_path" id="File" accept="image/*">
-  <input type="text" name="project_link" id="projectLink" placeholder="Project Link (optional)">
-  <button type="submit" id="submitBtn">Add Project</button>
-</form>
+    <form id="projectForm" enctype="multipart/form-data">
+      <input type="text" id="projectTitle" name="project_title" required placeholder="Project Title">
+      <textarea id="projectDescription" name="project_description" placeholder="Project Description"></textarea>
+      <input type="file" id="File" name="file" accept="image/*">
+      <input type="text" id="projectLink" name="project_link" placeholder="Project Link (optional)">
+      <button type="submit">Upload</button>
+    </form>
 
     <!-- Project List -->
-    <div class="grid" id="projectList">
-</div>
-
-</div>
-
-<!-- VIEW MODAL -->
-<div id="viewModal">
-  <div id="viewModalContent">
-    <button id="closeView">✕</button>
-    <h2 id="viewTitle">Project Title</h2>
-
-    <div id="viewBody">
-      <img id="viewImage" src="" alt="Project Image">
-      <div id="viewText">
-        <p id="viewDescription">This is where the project description appears.</p>
-        <a id="viewLink" href="#" target="_blank">View Project</a>
-      </div>
-    </div>
+    <div class="grid" id="projectList"></div>
   </div>
-</div>
 </div>

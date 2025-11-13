@@ -21,7 +21,8 @@
   <?php include 'project.php'; ?>
   <?php include 'contact.php';?>
 
-  <?php include'php/db_connect.php'; ?>
+  <?php include'php/db.php'; ?>
+
 
 <script src="js/main.js"></script>
 <script src="js/login.js"></script>
