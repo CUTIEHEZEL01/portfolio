@@ -27,7 +27,6 @@
 <script src="js/main.js"></script>
 <script src="js/login.js"></script>
 <script src="js/about.js"></script>
-<script src="js/project.js"></script>
 <script src="js/contact.js"></script>
 
 </body>

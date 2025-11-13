@@ -32,5 +32,5 @@
   </footer>
 </div>
 
-<script src="js/project.js"></script>
+
 </body>
