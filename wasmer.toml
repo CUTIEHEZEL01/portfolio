@@ -1,0 +1,9 @@
+[package]
+name = "portfolio"
+version = "1.0.0"
+
+[command]
+run = "php -S 0.0.0.0:3000 -t ."
+
+[fs]
+public = "."
