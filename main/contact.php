@@ -21,4 +21,13 @@
   </div>
 </section>
 
+<!-- EmailJS library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- Initialize EmailJS -->
+<script>
+  emailjs.init({
+    publicKey: "7-hA22t2u-HIX9jur"
+  });
+</script>
 

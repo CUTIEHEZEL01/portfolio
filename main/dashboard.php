@@ -22,7 +22,7 @@
   </main>
   <head> 
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/contact.css">
 </head>
 

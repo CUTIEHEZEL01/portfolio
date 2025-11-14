@@ -8,23 +8,23 @@
   <!-- Combine All CSS -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/login.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/project.css">
   <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
 
-  <?php include 'login.php'; ?>
-  <?php include 'main.php';?>
-  <?php include 'about.php'; ?>
-  <?php include 'project.php'; ?>
-  <?php include 'contact.php';?>
+  <?php include 'main/login.php'; ?>
+  <?php include 'main/dashboard.php';?>
+  <?php include 'main/about.php'; ?>
+  <?php include 'main/project.php'; ?>
+  <?php include 'main/contact.php';?>
 
   <?php include'php/db.php'; ?>
 
 
-<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
 <script src="js/login.js"></script>
 <script src="js/about.js"></script>
 <script src="js/contact.js"></script>
