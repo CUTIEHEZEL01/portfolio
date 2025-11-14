@@ -1,15 +1,7 @@
 <?php
-header('Content-Type: application/json');
-$host = "localhost";
-$user = "root";
-$password = "";
-$dbname = "hezel_portfolio";
+include 'db.php';
 
-$conn = new mysqli($host, $user, $password, $dbname);
-if ($conn->connect_error) {
-    echo json_encode(["success" => false, "message" => "Database connection failed"]);
-    exit;
-}
+header('Content-Type: application/json');
 
 $id = $_POST['id'] ?? '';
 $title = $_POST['project_title'] ?? '';
