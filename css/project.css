@@ -108,6 +108,7 @@
 .card .meta h3 {
   font-size: 1.1rem;
   margin: 0 0 5px;
+  color:rgb(38, 22, 180)
 }
 
 .card .meta p.sub {
@@ -136,7 +137,7 @@
   padding: 1.5rem;
   max-width: 850px;
   width: 90%;
-  color: white;
+  color: rgb(38, 22, 180);
   position: relative;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
@@ -190,7 +191,7 @@
 }
 
 #viewDescription {
-  color: var(--muted, #94a3b8);
+  color: var(--muted, #c310e7);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 10px;
